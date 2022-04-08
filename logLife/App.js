@@ -1,18 +1,44 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
 
 export default function App() {
+
+  const [offset] = useState(new Animated.ValueXY({ x: 0, y: 95 }));
+  const [opacity] = useState(new Animated.Value(0));
+  
+  useEffect(() => {
+    Animated.parallel([
+      Animated.spring(offset.y, {
+        toValue: 0,
+        speed: 4,
+        bounciness: 20,
+      }),
+      Animated.timing(opacity, {
+        toValue: 1,
+        duration: 200,
+      })
+    ]).start();
+  }, []);
+
   return (
     <KeyboardAvoidingView style={styles.background}>
 
       <View style={styles.containerLogo}>
-        <Image
-        source={require('./Img/logo_loglife.png')}
+        <Image source={require('./Img/logo_loglife.png')}
         />
       </View>
        
-      <View style={styles.container}>
+      <Animated.View style={[
+        styles.container,
+        {
+          opacity:opacity,
+          transform: [
+          {translateY: offset.y}
+        ]
+        }
+      ]}>
+
         <TextInput style={styles.input}
           placeholder='Digite seu e-mail'
           autoCorrect={false}
@@ -33,7 +59,7 @@ export default function App() {
           <Text style={styles.register_text}>Criar conta</Text>
       </TouchableOpacity>
 
-      </View>
+      </Animated.View>
 
     <StatusBar style="light" />
     </KeyboardAvoidingView>
