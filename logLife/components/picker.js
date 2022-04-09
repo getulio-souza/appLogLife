@@ -1,34 +1,20 @@
-// import React, { Component } from React;
-// import {View, Picker, StyleSheet } from "react-native";
+// async function ImagePickerCall() {
+//     if (Constants.platform.ios) {
+//       const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
 
-// class PickerComponent extends Component{
-
-//     state = {
-//       Clientes: 'Fleury'
+//       if (status !== 'granted') {
+//         alert("Nós precisamos da sua permissão.");
+//         return;
+//       }
 //     }
+//     const data = await ImagePicker.launchCameraAsync({});
 
-//     render() {
-//         return (
-//             <View>
-//                 <Picker style={styles.picker_items}
-//                     selectedValue={this.state.Clientes}
-//                     onValueChange={(itemValue, itemIndex)=> this.setState({Clientes:itemValue})}
-//                 >
-//                     <Picker.Item label="Clientes" value="Fleury"/>
-//                     <Picker.Item label="Rementente" value="Unimed (Natal)"/>
-//                     <Picker.Item label="Data" value="xx/xx/xxxx"/>
-//                     <Picker.Item label="Horário" value="00:00:00"/>
-//                 </Picker>
-//             </View>
-//         )
+//     if (data.cancelled) {
+//       return;
 //     }
+    
+//     if (!data.uri) {
+//       return;
+//    }
 // }
-
-// const styles = StyleSheet.create({
-//     picker_items: {
-//         width: 2,
-//         height:4,
-//     }
-// });
-
-// export default PickerComponent;
+  
