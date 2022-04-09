@@ -38,25 +38,26 @@ export default function App() {
         ]
         }
       ]}>
-        <TouchableOpacity style={styles.btn_title}>
-          <Text style={styles.btn_text}>Selecione uma opção:</Text>
+
+        <TextInput style={styles.input}
+          placeholder='Digite seu e-mail'
+          autoCorrect={false}
+          onChangeText={()=>{}}
+        />
+
+         <TextInput style={styles.input}
+          placeholder='Digite sua senha'
+          autoCorrect={false}
+          onChangeText={()=>{}}
+        />
+
+        <TouchableOpacity style={styles.btn_Submit}>
+          <Text style={styles.submit_text}>Acessar</Text>
         </TouchableOpacity>
         
-        <View style={styles.allBtn}>
-        <TouchableOpacity style={styles.btn_Submit}>
-          <Text style={styles.submit_text}>Coletas</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btn_Submit}>
-          <Text style={styles.submit_text}>Embarques</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btn_Submit}>
-          <Text style={styles.submit_text}>Desembarques</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btn_Submit}>
-          <Text style={styles.submit_text}>Entregas</Text>
-        </TouchableOpacity>
-        </View>
-        
+        <TouchableOpacity style={styles.btn_register}>
+          <Text style={styles.register_text}>Criar conta</Text>
+      </TouchableOpacity>
 
       </Animated.View>
 
@@ -85,6 +86,17 @@ const styles = StyleSheet.create({
     width: 90,
     paddingBottom:40
   },
+  
+  input: {
+    backgroundColor: '#fff',
+    width: 250,
+    height: 40,
+    marginBottom: 15,
+    color: '#222',
+    fontSize: 17,
+    borderRadius: 7,
+    paddingLeft:7,
+  },
 
   btn_Submit: {
     backgroundColor: '#61aadb',
@@ -101,27 +113,19 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
 
-  btn_title: {
+  btn_register: {
+    backgroundColor: '#000',
     width: 250,
     height: 45,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 7,
     marginBottom: 15,
-  },
 
-  btn_text: {
-    color: '#fff',
-    fontSize: 18,
   },
 
   register_text: {
     color:'#fff',
   }
-  ,
-  allBtn: {
-    flex: 1,
-    
-  },
 
 });

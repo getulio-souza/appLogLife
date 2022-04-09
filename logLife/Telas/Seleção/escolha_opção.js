@@ -42,7 +42,6 @@ export default function App() {
           <Text style={styles.btn_text}>Selecione uma opção:</Text>
         </TouchableOpacity>
         
-        <View style={styles.allBtn}>
         <TouchableOpacity style={styles.btn_Submit}>
           <Text style={styles.submit_text}>Coletas</Text>
         </TouchableOpacity>
@@ -55,7 +54,6 @@ export default function App() {
         <TouchableOpacity style={styles.btn_Submit}>
           <Text style={styles.submit_text}>Entregas</Text>
         </TouchableOpacity>
-        </View>
         
 
       </Animated.View>
@@ -118,10 +116,5 @@ const styles = StyleSheet.create({
   register_text: {
     color:'#fff',
   }
-  ,
-  allBtn: {
-    flex: 1,
-    
-  },
 
 });
