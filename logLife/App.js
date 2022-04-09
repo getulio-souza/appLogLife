@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { View, KeyboardAvoidingView, Image, TouchableOpacity, Text, StyleSheet, Animated, } from 'react-native';
+import { View, KeyboardAvoidingView, Image, TouchableOpacity, Text, StyleSheet, Animated, TextInput, } from 'react-native';
 // import PickerComponent from './components/picker';
 
 export default function App() {
@@ -40,33 +40,101 @@ export default function App() {
         }
       ]}>
         <TouchableOpacity style={styles.btn_title}>
-          <Text style={styles.btn_text}>Lançamento da coleta:</Text>
+          <Text style={styles.btn_text}>LANÇAMENTO DA COLETA</Text>
         </TouchableOpacity>
       
         {/* <PickerComponent/> */}
+
+  
+        <View style={styles.protocolo_cliente}>
+        <TouchableOpacity style={styles.btn_option}>
+            <Text style={styles.submit_text}>Protocolo:</Text>
+            <TextInput
+              keyboardType='number-pad'
+              placeholder='ex:123218378273'
+              autoCorrect={false}
+              onChangeText={()=>{}}
+            />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.btn_option}>
+            <Text style={styles.submit_text}>Cliente:</Text>
+            <TextInput
+              placeholder='ex:Fleury'
+              autoCorrect={false}
+              onChangeText={()=>{}}
+            />
+        </TouchableOpacity>
+        </View>
+      
+        <View style={styles.names}>
+          <TouchableOpacity style={styles.btn_option}>
+            <Text style={styles.submit_text}>Remetente:</Text>
+            <TextInput
+              placeholder='ex:José de Souza'
+              autoCorrect={false}
+              onChangeText={()=>{}}
+            />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.btn_option}>
+            <Text style={styles.submit_text}>Responsável:</Text> 
+            <TextInput
+              placeholder='ex:joao da silva'
+              autoCorrect={false}
+              onChangeText={()=>{}}
+            />
+        </TouchableOpacity>
+        </View>
+
+        <View style={styles.protocolo_cliente}>
+        <TouchableOpacity >
+            <Text style={styles.submit_text}>Volume:</Text> 
+            <TextInput style={styles.btn_option}
+              keyboardType='number-pad'
+              placeholder='ex:1,2,3,4,5'
+              autoCorrect={false}
+              onChangeText={()=>{}}
+            />
+        </TouchableOpacity>
+        <TouchableOpacity >
+            <Text style={styles.submit_text}>Amostras</Text> 
+            <TextInput style={styles.btn_option}
+              keyboardType='number-pad'
+              placeholder='ex:1,2,3,4,5'
+              autoCorrect={false}
+              onChangeText={()=>{}}
+            />
+        </TouchableOpacity>
+          </View>
+          
+         
+        <View style={styles.protocolo_cliente}>
+        <TouchableOpacity >
+            <Text style={styles.submit_text}>Observações</Text> 
+            <TextInput style={styles.btn_option}
+              placeholder='ex:1,2,3,4,5'
+              autoCorrect={false}
+              onChangeText={()=>{}}
+            />
+        </TouchableOpacity>
+          <TouchableOpacity style={styles.btn_option_upload}>
+            <Text style={styles.submit_text_upload}>Suba seu arquivo</Text>
+        </TouchableOpacity>
+        </View>
         
 
-        <View style={styles.allBtn}>
-        <TouchableOpacity style={styles.btn_option}>
-            <Text style={styles.submit_text}>Clientes</Text>
+        <View style={styles.protocolo_cliente}>
+        <TouchableOpacity style={styles.btn_red}>
+            <Text style={styles.submit_text}>Ocorrência</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.btn_option}>
-          <Text style={styles.submit_text_special}>Remetente</Text>
+        <TouchableOpacity style={styles.btn_green}>
+            <Text style={styles.submit_text}>Finalizar</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.btn_option}>
-          <Text style={styles.submit_text}>Data</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btn_option}>
-          <Text style={styles.submit_text}>Entregas</Text>
-          </TouchableOpacity>
         </View>
-           <View style={styles.btn_Submit}>
-          <Text style={styles.submit_btn}>Buscar</Text>
-        </View>
+
   
       </Animated.View>
 
-    <StatusBar style="light" />
+    <StatusBar style="dark" />
     </KeyboardAvoidingView>
   );
 }
@@ -84,16 +152,33 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
+    btn_title: {
+    width: 250,
+    height: 45,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 7,
+    marginBottom: 15,
+  },
+
   container: {
     flex: 2,
     alignItems: 'center',
     justifyContent: 'center',
-    width: 90,
-    paddingBottom:40
+    width:180,
+    paddingBottom: 40,
+  },
+   
+
+  full_data: {
+    
   },
 
-  btn_option: {
-    backgroundColor: '#61aadb',
+
+
+  //botão amarelo 
+  btn_red: {
+    backgroundColor: '#DC143C',
     padding:12,
     margin:2,
     height: 45,
@@ -103,43 +188,11 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
 
-    //botão "buscar"
-  btn_Submit: {
-    backgroundColor: '#fff',
-    color:'#61aadb',
+  //botão azul 
+  btn_green: {
+    backgroundColor: '#32CD32',
     padding:12,
-    height: 45,
-    borderRadius: 7,
-    marginBottom: 15,
-    textAlign:'center',
-  },
-  
-  //botão "buscar"
-  submit_btn: {
-    color: '#61aadb',
-    fontSize: 20,
-  },
-
-   //conjunto de botões
-   allBtn: {
-    flex: 1,
-    flexDirection: 'row',
-  },
-
-  submit_text: {
-    color: '#fff',
-    fontSize: 17,
-  },
-
-
-  //remetente 
-  submit_text_special: {
-      color: '#fff',
-    fontSize: 12, //texto menor para caber dentro do botão
-  },
-
-  btn_title: {
-    width: 250,
+    margin:2,
     height: 45,
     alignItems: 'center',
     justifyContent: 'center',
@@ -147,15 +200,72 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
 
+  btn_option: {
+    backgroundColor: '#61aadb', //remover o fundo azul claro
+    padding:12,
+    margin:2,
+    height: 55,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 7,
+    marginBottom: 15,
+  },
+
+   btn_option_upload: {
+    backgroundColor: '#fff', 
+    padding:12,
+    margin:2,
+    height: 45,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 7,
+    marginBottom: 15,
+  },  
+
+  submit_text_upload: {
+    color: '#61aadb'
+  },
+
+   //protocolo/cliente
+   protocolo_cliente: {
+    flex: 2,
+     flexDirection: 'row',
+     marginBottom: 20,
+     justifyContent: 'space-between',
+     alignItems: 'center',
+  },
+   
+   input: {
+    backgroundColor: '#32CD32',
+    width: 120,
+    height: 40,
+    marginBottom: 15,
+    color: '#222',
+    fontSize: 17,
+    borderRadius: 7,
+    paddingLeft:7,
+  },
+   
+   //remetente
+   names: {
+    flex: 3,
+     flexDirection: 'row',
+    justifyContent:'space-between',
+    
+  },
+   
+  
+  submit_text: {
+    color: '#fff',
+    fontSize: 17,
+    textAlign:'center',
+  },
+
+
   btn_text: {
     color: '#fff',
     fontSize: 18,
   },
 
-  register_text: {
-    color:'#fff',
-  }
-  ,
- 
 
 });
