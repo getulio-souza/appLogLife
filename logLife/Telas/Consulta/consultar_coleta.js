@@ -40,7 +40,7 @@ export default function App() {
         }
       ]}>
         <TouchableOpacity style={styles.btn_title}>
-          <Text style={styles.btn_text}>Lançamento da coleta:</Text>
+          <Text style={styles.btn_text}>Consulte sua coleta:</Text>
         </TouchableOpacity>
       
         {/* <PickerComponent/> */}
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   },
 
   container: {
-    flex: 2,
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     width: 90,
