@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
 import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
 
-export default function Subscribe() {
+export default function escolher_opção() {
 
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 95 }));
   const [opacity] = useState(new Animated.Value(0));
@@ -25,7 +25,7 @@ export default function Subscribe() {
     <KeyboardAvoidingView style={styles.background}>
 
       <View style={styles.containerLogo}>
-        <Image source={require('./Img/logo_loglife.png')}
+        <Image source={{uri: 'https://loglifelogistica.com.br/wp-content/uploads/2020/04/logo_loglife.png'}}
         />
       </View>
        
@@ -38,42 +38,23 @@ export default function Subscribe() {
         ]
         }
       ]}>
-
-        
-<TouchableOpacity style={styles.btn_title}>
-          <Text style={styles.btn_text}>Criar nova conta</Text>
+        <TouchableOpacity style={styles.btn_title}>
+          <Text style={styles.btn_text}>Selecione uma opção:</Text>
         </TouchableOpacity>
-      
-
-        <TextInput style={styles.input}
-          placeholder='Nome completo'
-          autoCorrect={false}
-          onChangeText={()=>{}}
-        />
-
-         <TextInput style={styles.input}
-          placeholder='Número de telefone'
-          keyboardType='number-pad'
-          autoCorrect={false}
-          onChangeText={()=>{}}
-        />
-
-         <TextInput style={styles.input}
-          placeholder='Endereço de e-mail'
-          autoCorrect={false}
-          onChangeText={()=>{}}
-        />
-
-        <TextInput style={styles.input}
-          placeholder='Senha'
-          autoCorrect={false}
-          onChangeText={()=>{}}
-        />
-
         
-        <TouchableOpacity style={styles.btn_register}>
-          <Text style={styles.register_text}>Criar conta</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={styles.btn_Submit}>
+          <Text style={styles.submit_text}>Coletas</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.btn_Submit}>
+          <Text style={styles.submit_text}>Embarques</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.btn_Submit}>
+          <Text style={styles.submit_text}>Desembarques</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.btn_Submit}>
+          <Text style={styles.submit_text}>Entregas</Text>
+        </TouchableOpacity>
+        
 
       </Animated.View>
 
@@ -102,17 +83,6 @@ const styles = StyleSheet.create({
     width: 90,
     paddingBottom:40
   },
-  
-  input: {
-    backgroundColor: '#fff',
-    width: 250,
-    height: 40,
-    marginBottom: 15,
-    color: '#222',
-    fontSize: 17,
-    borderRadius: 7,
-    paddingLeft:7,
-  },
 
   btn_Submit: {
     backgroundColor: '#61aadb',
@@ -129,30 +99,22 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
 
-  btn_register: {
-    backgroundColor: '#61aadb',
+  btn_title: {
     width: 250,
     height: 45,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 7,
     marginBottom: 15,
+  },
 
+  btn_text: {
+    color: '#fff',
+    fontSize: 18,
   },
 
   register_text: {
     color:'#fff',
-  },
-      btn_title: {
-        width: 250,
-        height: 45,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 7,
-        marginBottom: 15,
-      },
-    btn_text: {
-        color: '#fff',
-        fontSize: 25,
-      }
+  }
+
 });

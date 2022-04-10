@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import { View, KeyboardAvoidingView, Image, TouchableOpacity, Text, StyleSheet, Animated, } from 'react-native';
 // import PickerComponent from './components/picker';
 
-export default function App() {
+export default function consulta() {
 
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 95 }));
   const [opacity] = useState(new Animated.Value(0));
@@ -26,7 +26,7 @@ export default function App() {
     <KeyboardAvoidingView style={styles.background}>
 
       <View style={styles.containerLogo}>
-        <Image source={require('./Img/logo_loglife.png')}
+        <Image source={require('../logo.png')}
         />
       </View>
        

@@ -3,11 +3,12 @@ import React, { Component } from 'react';
 import { NavigationContainer, StackRouter } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Login from './Telas/Login';
-import Subscribe from '../Telas/subscribe'; 
-import escolher_opção from './Telas/Seleção'; 
-import Consulta from './Telas/Consulta'; 
-import Dados from './Telas/Dados_de_coleta'; 
+import login from '../logLife/Telas/login/';
+import menu from '../logLife/Telas/menu/'
+import subscribe from '../logLife/Telas/subscribe/'; 
+import selecao from '../logLife/Telas/selecao/'
+import consulta from '../logLife/Telas/consulta/'; 
+import dados from '../logLife/Telas/dados/'; 
 
 const Stack = createStackNavigator();
 
@@ -15,12 +16,13 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-       <Stack.Screen name="Login" component={Login}/>
-       <Stack.Screen name="Subscribe" component={Subscribe}/>
-       <Stack.Screen name="escolher_opção" component={escolher_opção}/>
-       <Stack.Screen name="Consulta" component={Consulta}/>
-       <Stack.Screen name="Dados" component={Dados}/>
+      <Stack.Navigator initialRouteName="login">
+       <Stack.Screen name="login" component={login}/>
+       <Stack.Screen name="subscribe" component={subscribe}/>
+       <Stack.Screen name="menu" component={menu}/>
+       <Stack.Screen name="selecao" component={selecao}/>
+       <Stack.Screen name="consulta" component={consulta}/>
+       <Stack.Screen name="dados" component={dados}/>
       </Stack.Navigator>
     </NavigationContainer>
   )

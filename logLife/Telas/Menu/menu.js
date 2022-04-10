@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
+import { View, KeyboardAvoidingView, Image, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
 
-export default function Login() {
+export default function menu() {
 
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 95 }));
   const [opacity] = useState(new Animated.Value(0));
@@ -25,7 +25,7 @@ export default function Login() {
     <KeyboardAvoidingView style={styles.background}>
 
       <View style={styles.containerLogo}>
-        <Image source={require('./Img/logo_loglife.png')}
+        <Image source={require('../logo.png')}
         />
       </View>
        

@@ -7,7 +7,7 @@ import { View, KeyboardAvoidingView, Image, TouchableOpacity, Text, StyleSheet, 
 // import * as Permissions from 'expo-permissions';
 // import * as ImagePicker from 'expo-picker';
 
-export default function App() {
+export default function dados() {
 
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 95 }));
   const [opacity] = useState(new Animated.Value(0));
@@ -29,8 +29,8 @@ export default function App() {
   return (
     <KeyboardAvoidingView style={styles.background}>
 
-      <View style={styles.containerLogo}>
-        <Image source={require('./Img/logo_loglife.png')}
+       <View style={styles.containerLogo}>
+        <Image source={require('../logo.png')}
         />
       </View>
        
