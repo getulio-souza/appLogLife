@@ -11,11 +11,11 @@ registerRootComponent(App);
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 
-export default function Login({navigation}) {
+export default function login({navigation}) {
     return (
         <View>
             <Button
-            onPress={()=> navigation.navigate('Login')}
+            onPress={()=> navigation.navigate('login')}
             />
        </View>
    )    

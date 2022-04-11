@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-
 import { NavigationContainer, StackRouter } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import login from '../logLife/Telas/login/';
-import menu from '../logLife/Telas/menu/'
-import subscribe from '../logLife/Telas/subscribe/'; 
-import selecao from '../logLife/Telas/selecao/'
-import consulta from '../logLife/Telas/consulta/'; 
-import dados from '../logLife/Telas/dados/'; 
+import login from './telas/login';
+import menu from './telas/menu';
+import subscribe from './telas/subscribe'; 
+import selecao from './telas/selecao/'
+import consulta from './telas/consulta'; 
+import dados from './telas/dados'; 
 
 const Stack = createStackNavigator();
 

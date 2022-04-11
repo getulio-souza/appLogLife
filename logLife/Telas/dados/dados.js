@@ -30,7 +30,7 @@ export default function dados() {
     <KeyboardAvoidingView style={styles.background}>
 
        <View style={styles.containerLogo}>
-        <Image source={require('../logo.png')}
+        <Image source={{uri:"https://loglifelogistica.com.br/wp-content/uploads/2020/04/logo_loglife.png"}}
         />
       </View>
        
