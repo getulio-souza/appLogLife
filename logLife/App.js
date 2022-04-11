@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { NavigationContainer, StackRouter } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Login from './Telas/Login';
+import Login from './Telas/Login/';
 import Menu from './Telas/Menu';
 import Subscribe from './Telas/Subscribe'; 
-import Selecao from './Telas/selecao/'
+import Selecao from './Telas/Selecao/'
 import Consulta from './Telas/Consulta'; 
 import Dados from './Telas/Dados'; 
 
