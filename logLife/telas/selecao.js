@@ -25,7 +25,7 @@ export default function escolher_opção() {
     <KeyboardAvoidingView style={styles.background}>
 
       <View style={styles.containerLogo}>
-        <Image source={{uri: 'https://loglifelogistica.com.br/wp-content/uploads/2020/04/logo_loglife.png'}}
+        <Image source={require('./Img/logo.png')}
         />
       </View>
        

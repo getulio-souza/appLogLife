@@ -2,11 +2,6 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
 import { View, KeyboardAvoidingView, Image, TouchableOpacity, Text, StyleSheet, Animated, TextInput, } from 'react-native';
 
-//Preparando o picker 
-// import Constants from 'expo-constants';
-// import * as Permissions from 'expo-permissions';
-// import * as ImagePicker from 'expo-picker';
-
 export default function dados() {
 
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 95 }));
@@ -30,10 +25,9 @@ export default function dados() {
     <KeyboardAvoidingView style={styles.background}>
 
        <View style={styles.containerLogo}>
-        <Image source={{uri:"https://loglifelogistica.com.br/wp-content/uploads/2020/04/logo_loglife.png"}}
+         <Image source={require('./Img/logo.png')}
         />
       </View>
-       
       <Animated.View style={[
         styles.container,
         {
@@ -90,7 +84,7 @@ export default function dados() {
         </View>
 
         <View style={styles.protocolo_cliente}>
-        <TouchableOpacity >
+          <TouchableOpacity style={styles.btn_option}>
             <Text style={styles.submit_text}>Volume:</Text> 
             <TextInput
               keyboardType='number-pad'
@@ -99,22 +93,24 @@ export default function dados() {
               onChangeText={()=>{}}
             />
         </TouchableOpacity>
-        <TouchableOpacity >
-            <Text style={styles.submit_text}>Amostras</Text> 
-            <TextInput style={styles.btn_option}
+          <TouchableOpacity style={styles.btn_option}>
+            <Text style={styles.submit_text}>Amostras:</Text> 
+            <TextInput
               keyboardType='number-pad'
               placeholder='ex:1,2,3,4,5'
               autoCorrect={false}
               onChangeText={()=>{}}
             />
         </TouchableOpacity>
+     
           </View>
           
          
         <View style={styles.protocolo_cliente}>
-        <TouchableOpacity >
-            <Text style={styles.submit_text}>Observações</Text> 
-            <TextInput style={styles.btn_option}
+         <TouchableOpacity style={styles.btn_option}>
+            <Text style={styles.submit_text}>Observações:</Text> 
+            <TextInput
+              keyboardType='number-pad'
               placeholder='ex:1,2,3,4,5'
               autoCorrect={false}
               onChangeText={()=>{}}

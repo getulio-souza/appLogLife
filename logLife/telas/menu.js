@@ -25,7 +25,7 @@ export default function menu() {
     <KeyboardAvoidingView style={styles.background}>
 
       <View style={styles.containerLogo}>
-        <Image source={{uri:"https://loglifelogistica.com.br/wp-content/uploads/2020/04/logo_loglife.png"}}
+        <Image source={require('./Img/logo.png')}
         />
       </View>
        
@@ -38,6 +38,10 @@ export default function menu() {
         ]
         }
       ]}>
+
+        <TouchableOpacity style={styles.btn_title}>
+          <Text style={styles.btn_text}>Escolha uma opção:</Text>
+        </TouchableOpacity>
 
         <TouchableOpacity style={styles.btn_Submit}>
           <Text style={styles.submit_text}>Coletas Disponíveis</Text>
@@ -103,6 +107,18 @@ const styles = StyleSheet.create({
 
   register_text: {
     color:'#fff',
-  }
+  },
+   btn_title: {
+        width: 250,
+        height: 45,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 7,
+        marginBottom: 15,
+      },
+    btn_text: {
+        color: '#fff',
+        fontSize: 25,
+      }
 
 });

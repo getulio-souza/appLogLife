@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
 import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
 
-export default function subscribe() {
+export default function login() {
 
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 95 }));
   const [opacity] = useState(new Animated.Value(0));
@@ -24,8 +24,8 @@ export default function subscribe() {
   return (
     <KeyboardAvoidingView style={styles.background}>
 
-       <View style={styles.containerLogo}>
-        <Image source={{uri:"https://loglifelogistica.com.br/wp-content/uploads/2020/04/logo_loglife.png"}}
+      <View style={styles.containerLogo}>
+        <Image source={require('./Img/logo.png')}
         />
       </View>
        
@@ -39,37 +39,21 @@ export default function subscribe() {
         }
       ]}>
 
-        
-<TouchableOpacity style={styles.btn_title}>
-          <Text style={styles.btn_text}>Criar nova conta</Text>
+        <TextInput style={styles.input}
+          placeholder='Digite seu e-mail'
+          autoCorrect={false}
+          onChangeText={()=>{}}
+        />
+
+         <TextInput style={styles.input}
+          placeholder='Digite sua senha'
+          autoCorrect={false}
+          onChangeText={()=>{}}
+        />
+
+        <TouchableOpacity style={styles.btn_Submit}>
+          <Text style={styles.submit_text}>Acessar</Text>
         </TouchableOpacity>
-      
-
-        <TextInput style={styles.input}
-          placeholder='Nome completo'
-          autoCorrect={false}
-          onChangeText={()=>{}}
-        />
-
-         <TextInput style={styles.input}
-          placeholder='Número de telefone'
-          keyboardType='number-pad'
-          autoCorrect={false}
-          onChangeText={()=>{}}
-        />
-
-         <TextInput style={styles.input}
-          placeholder='Endereço de e-mail'
-          autoCorrect={false}
-          onChangeText={()=>{}}
-        />
-
-        <TextInput style={styles.input}
-          placeholder='Senha'
-          autoCorrect={false}
-          onChangeText={()=>{}}
-        />
-
         
         <TouchableOpacity style={styles.btn_register}>
           <Text style={styles.register_text}>Criar conta</Text>
@@ -130,7 +114,7 @@ const styles = StyleSheet.create({
   },
 
   btn_register: {
-    backgroundColor: '#61aadb',
+    backgroundColor: '#000',
     width: 250,
     height: 45,
     alignItems: 'center',
@@ -142,17 +126,6 @@ const styles = StyleSheet.create({
 
   register_text: {
     color:'#fff',
-  },
-      btn_title: {
-        width: 250,
-        height: 45,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 7,
-        marginBottom: 15,
-      },
-    btn_text: {
-        color: '#fff',
-        fontSize: 25,
-      }
+  }
+
 });
