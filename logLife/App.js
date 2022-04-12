@@ -2,12 +2,12 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import login from './telas/login'
-import menu from './telas/menu'
-import subscribe from './telas/subscribe'
-import selecao from './telas/selecao'
-import consulta from './telas/consultar_coleta'
-import dados from './telas/dados'; 
+import Login from './telas/login'
+import Menu from './telas/menu'
+import Subscribe from './telas/subscribe'
+import Selecao from './telas/selecao'
+import Consulta from './telas/consultar_coleta'
+import Dados from './telas/dados'; 
 
 const Stack = createStackNavigator();
 
@@ -15,12 +15,12 @@ const Stack = createStackNavigator();
     return (
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="login" component={login} />
-          <Stack.Screen name="subscribe" component={subscribe} />
-          <Stack.Screen name="menu" component={menu} />
-          <Stack.Screen name="selecao" component={selecao} />
-          <Stack.Screen name="consulta" component={consulta} />
-          <Stack.Screen name="dados" component={dados} />
+          <Stack.Screen name="login" component={Login} />
+          <Stack.Screen name="subscribe" component={Subscribe} />
+          <Stack.Screen name="menu" component={Menu} />
+          <Stack.Screen name="selecao" component={Selecao} />
+          <Stack.Screen name="consulta" component={Consulta} />
+          <Stack.Screen name="dados" component={Dados} />
         </Stack.Navigator>
       </NavigationContainer>
     );

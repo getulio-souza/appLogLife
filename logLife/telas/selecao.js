@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
 import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
 
-export default function escolher_opção() {
+export default function Selecao() {
 
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 95 }));
   const [opacity] = useState(new Animated.Value(0));
@@ -17,6 +17,7 @@ export default function escolher_opção() {
       Animated.timing(opacity, {
         toValue: 1,
         duration: 200,
+        useNativeDriver: false
       })
     ]).start();
   }, []);
@@ -25,7 +26,7 @@ export default function escolher_opção() {
     <KeyboardAvoidingView style={styles.background}>
 
       <View style={styles.containerLogo}>
-        <Image source={require('./Img/logo.png')}
+        <Image source={require('../telas/img/logo.png')}
         />
       </View>
        
