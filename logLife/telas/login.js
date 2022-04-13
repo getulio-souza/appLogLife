@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
+import {View, Button, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
 
 export default function Login() {
 
@@ -17,12 +17,13 @@ export default function Login() {
       Animated.timing(opacity, {
         toValue: 1,
         duration: 200,
-        useNativeDriver: false
+        useNativeDriver: false,
       })
     ]).start();
   }, []);
 
   return (
+    
     <KeyboardAvoidingView style={styles.background}>
 
       <View style={styles.containerLogo}>

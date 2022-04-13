@@ -1,7 +1,5 @@
 import { registerRootComponent } from 'expo';
-
 import App from './App';
-
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 
@@ -10,15 +8,15 @@ import { View, Text, Button } from 'react-native';
 // the environment is set up appropriately
 registerRootComponent(App);
 
+
 export default function Login({navigation}) {
     return (
         <View>
-        <Text>subscribe</Text>
-            <Button
-                title="Subscribe"
-            onPress={()=> navigation.navigate('Subscribe')}
-            />
-       </View>
-   )    
-}
+            <Text>Login</Text>
+            <Button title="ir para cadastro" onPress={() => navigation.navigate('subscribe')} />
+            <Button title="Voltar " onPress={() => navigation.goBack()} />
+        </View>
+    );    
+ }
+
 

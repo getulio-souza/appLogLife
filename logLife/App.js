@@ -9,12 +9,12 @@ import Selecao from './telas/selecao'
 import Consulta from './telas/consultar_coleta'
 import Dados from './telas/dados'; 
 
-const Stack = createStackNavigator();
-
-  function App() {
+export default function App() {
+  
+  const Stack = createStackNavigator();
     return (
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator headerMode = "none" initialRouteName='Login'>
           <Stack.Screen name="login" component={Login} />
           <Stack.Screen name="subscribe" component={Subscribe} />
           <Stack.Screen name="menu" component={Menu} />
@@ -26,4 +26,3 @@ const Stack = createStackNavigator();
     );
 }
 
-export default App; 
