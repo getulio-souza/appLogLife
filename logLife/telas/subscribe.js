@@ -1,12 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
+import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated, Button } from 'react-native';
+import { TextInputMask } from 'react-native-masked-text';
+import { useNavigation } from '@react-navigation/native';
+import ButtonBackground from '../components/ButtonBackground';
+
 
 export default function Subscribe() {
 
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 95 }));
   const [opacity] = useState(new Animated.Value(0));
   
+    
   useEffect(() => {
     Animated.parallel([
       Animated.spring(offset.y, {
@@ -21,6 +26,8 @@ export default function Subscribe() {
       })
     ]).start();
   }, []);
+
+  const navigation = useNavigation()
 
   return (
     <KeyboardAvoidingView style={styles.background}>
@@ -46,6 +53,7 @@ export default function Subscribe() {
 
         <TextInput style={styles.input}
           placeholder='Nome completo'
+          textContentType='name'
           autoCorrect={false}
           onChangeText={()=>{}}
         />
@@ -53,26 +61,31 @@ export default function Subscribe() {
          <TextInput style={styles.input}
           placeholder='Número de telefone'
           keyboardType='number-pad'
+          textContentType='telephoneNumber'
           autoCorrect={false}
-          onChangeText={()=>{}}
+          onChangeText={() => { }}
+          maxLength={11}
         />
 
          <TextInput style={styles.input}
           placeholder='Endereço de e-mail'
+          keyboardType='email-address'
           autoCorrect={false}
           onChangeText={()=>{}}
         />
 
         <TextInput style={styles.input}
           placeholder='Senha'
+          secureTextEntry={true}
           autoCorrect={false}
           onChangeText={()=>{}}
         />
 
-        
-        <TouchableOpacity style={styles.btn_register}>
-          <Text style={styles.register_text}>Criar conta</Text>
-      </TouchableOpacity>
+        <ButtonBackground
+          text='Criar conta'
+          color='#61aadb'
+          onPress={() => navigation.push("Login")}
+        />
 
       </Animated.View>
 

@@ -1,12 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import {View, Button, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
+import {View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import ButtonBackground from '../components/ButtonBackground';
 
 export default function Login() {
 
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 95 }));
   const [opacity] = useState(new Animated.Value(0));
-  
+
+
   useEffect(() => {
     Animated.parallel([
       Animated.spring(offset.y, {
@@ -21,6 +24,9 @@ export default function Login() {
       })
     ]).start();
   }, []);
+
+const navigation = useNavigation()
+
 
   return (
     
@@ -40,26 +46,34 @@ export default function Login() {
         ]
         }
       ]}>
-
+ <TouchableOpacity style={styles.title}>
+          <Text style={styles.submit_text}>Faça seu login</Text>
+        </TouchableOpacity>
+        
         <TextInput style={styles.input}
           placeholder='Digite seu e-mail'
+          // value={email}
+          keyboardType='email-address'
           autoCorrect={false}
-          onChangeText={()=>{}}
+          // onChangeText={(text)=> setEmail(text)}
+          // onPress={() => navigation.push("Menu")}
         />
 
          <TextInput style={styles.input}
           placeholder='Digite sua senha'
+          // value={password}
+          secureTextEntry={true}
           autoCorrect={false}
-          onChangeText={()=>{}}
+          // onChangeText={(text)=> setPassword(text)}
+          
         />
 
-        <TouchableOpacity style={styles.btn_Submit}>
-          <Text style={styles.submit_text}>Acessar</Text>
-        </TouchableOpacity>
-        
-        <TouchableOpacity style={styles.btn_register}>
-          <Text style={styles.register_text}>Criar conta</Text>
-      </TouchableOpacity>
+
+        <ButtonBackground
+          text='Acessar'
+          color='#61aadb'
+          onPress={() => navigation.push("Menu")}
+        />
 
       </Animated.View>
 
@@ -100,6 +114,18 @@ const styles = StyleSheet.create({
     paddingLeft:7,
   },
 
+
+  title: {
+    fontSize:7,
+    width: 250,
+    height: 45,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 7,
+    marginBottom: 15,
+  },
+
+
   btn_Submit: {
     backgroundColor: '#61aadb',
     width: 250,
@@ -112,7 +138,7 @@ const styles = StyleSheet.create({
 
   submit_text: {
     color: '#fff',
-    fontSize: 18,
+    fontSize: 25,
   },
 
   btn_register: {

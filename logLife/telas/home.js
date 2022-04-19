@@ -1,11 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { View, KeyboardAvoidingView, Image, TouchableOpacity, Text, StyleSheet, Animated, Button } from 'react-native';
+import { View, KeyboardAvoidingView, Image, Text, StyleSheet, Animated} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import ButtonBackground from '../components/ButtonBackground';
+import { Linking } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
-export default function Menu() {
+export default function Home() {
+
 
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 95 }));
   const [opacity] = useState(new Animated.Value(0));
@@ -25,12 +28,12 @@ export default function Menu() {
     ]).start();
   }, []);
 
-
-    const navigation = useNavigation()
+const navigation = useNavigation()
 
   return (
-    <KeyboardAvoidingView style={styles.background}>
 
+    <KeyboardAvoidingView style={styles.background}>
+      
       <View style={styles.containerLogo}>
         <Image source={require('../telas/img/logo.png')}
         />
@@ -45,26 +48,28 @@ export default function Menu() {
         ]
         }
       ]}>
-
-        <TouchableOpacity style={styles.btn_title}>
-          <Text style={styles.btn_text}>Escolha uma opção:</Text>
-        </TouchableOpacity>
-
-        <ButtonBackground
-          text='Coletas Disponíveis'
+        
+          <ButtonBackground
+          text='Fazer Login'
           color='#61aadb'
-          onPress={() => navigation.push("Selecao")}
+          onPress={() => navigation.push("Login")}
         />
         
           <ButtonBackground
-          text='Sair'
+          text='Criar conta'
           color='#000'
-          onPress={() => navigation.push("Login")}
-            />
+          onPress={() => navigation.push("Subscribe")}
+        />
+
+        <TouchableOpacity style={styles.author}>
+          <Text style={styles.author_text}
+          onPress={()=> Linking.openURL('https://getulio-souza.netlify.app/')}
+          >Feito por <Text style={{color:'#fff'}}>Getúlio Souza</Text></Text>
+        </TouchableOpacity>
 
       </Animated.View>
 
-    <StatusBar style="light" />
+    <StatusBar style="dark" />
     </KeyboardAvoidingView>
   );
 }
@@ -77,8 +82,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#003275',
   },
 
- 
-
   containerLogo:{
     flex: 1,
     justifyContent: 'center',
@@ -87,25 +90,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-    width: 90,
+    justifyContent: 'space-between',
     paddingBottom:40
-  },
-
-  btn_Submit: {   
-    backgroundColor: '#61aadb',
-    width: 250,
-    height: 45,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 7,
-    marginBottom: 15,
-  },
-
-  submit_text: {
-    color: '#fff',
-    fontSize: 18,
-    backgroundColor:'transparent',
   },
 
   btn_register: {
@@ -120,8 +106,10 @@ const styles = StyleSheet.create({
   },
 
   register_text: {
-    color:'#fff',
-  },
+      color: '#fff',
+      fontSize: 18,
+    },
+  
    btn_title: {
         width: 250,
         height: 45,
@@ -133,6 +121,19 @@ const styles = StyleSheet.create({
     btn_text: {
         color: '#fff',
         fontSize: 25,
-      }
+  },
+    
+  author: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex:1,
+    },
+    
+    author_text: {
+      textAlign: 'center',
+      color: '#61aadb',
+      fontWeight: '700',
+      fontSize: 12,
+    },    
 
 });

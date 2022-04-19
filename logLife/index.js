@@ -2,6 +2,8 @@ import { registerRootComponent } from 'expo';
 import App from './App';
 import React from 'react';
 import { View, Text, Button } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 
 // registerRootComponent calls AppRegistry.registerComponent('main', () => App);
 // It also ensures that whether you load the app in Expo Go or in a native build,
@@ -9,14 +11,16 @@ import { View, Text, Button } from 'react-native';
 registerRootComponent(App);
 
 
-export default function Login({navigation}) {
-    return (
-        <View>
-            <Text>Login</Text>
-            <Button title="ir para cadastro" onPress={() => navigation.navigate('subscribe')} />
-            <Button title="Voltar " onPress={() => navigation.goBack()} />
-        </View>
-    );    
- }
+// function Home() {
+//       const navigation = useNavigation()
+//     return (
+//         <View>
+//             <Text>Home</Text>
+//             <Button
+//             title='Ir para Login' onPress={()=> navigation.push("Login")}
+//             />
+//         </View>
+//     );    
+//  }
 
-
+// export default Home;

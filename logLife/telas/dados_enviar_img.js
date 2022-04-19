@@ -1,11 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { View, KeyboardAvoidingView, Image, TouchableOpacity, Text, StyleSheet, Animated, Button } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import ButtonBackground from '../components/ButtonBackground';
+import { View, KeyboardAvoidingView, Image, TouchableOpacity, Text, StyleSheet, Animated, } from 'react-native';
+// import PickerComponent from './components/picker';
 
-
-export default function Menu() {
+export default function EnviarImagem() {
 
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 95 }));
   const [opacity] = useState(new Animated.Value(0));
@@ -25,9 +23,6 @@ export default function Menu() {
     ]).start();
   }, []);
 
-
-    const navigation = useNavigation()
-
   return (
     <KeyboardAvoidingView style={styles.background}>
 
@@ -45,23 +40,22 @@ export default function Menu() {
         ]
         }
       ]}>
-
         <TouchableOpacity style={styles.btn_title}>
-          <Text style={styles.btn_text}>Escolha uma opção:</Text>
+          <Text style={styles.btn_text}>Envie sua imagem</Text>
         </TouchableOpacity>
-
-        <ButtonBackground
-          text='Coletas Disponíveis'
-          color='#61aadb'
-          onPress={() => navigation.push("Selecao")}
-        />
+      
+        {/* <PickerComponent/> */}
         
-          <ButtonBackground
-          text='Sair'
-          color='#000'
-          onPress={() => navigation.push("Login")}
-            />
 
+        <View style={styles.allBtn}>
+        <TouchableOpacity style={styles.btn_option}>
+            <Text style={styles.submit_text}>Tirar Foto</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.btn_option}>
+          <Text style={styles.submit_text_special}>Escolher da galeria</Text>
+        </TouchableOpacity>
+        </View>
+  
       </Animated.View>
 
     <StatusBar style="light" />
@@ -77,8 +71,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#003275',
   },
 
- 
-
   containerLogo:{
     flex: 1,
     justifyContent: 'center',
@@ -88,51 +80,74 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    width: 90,
+    width: 250,
     paddingBottom:40
   },
 
-  btn_Submit: {   
+  btn_option: {
     backgroundColor: '#61aadb',
-    width: 250,
+    padding:12,
+    margin:2,
     height: 45,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 7,
     marginBottom: 15,
+  },
+
+    //botão "buscar"
+  btn_Submit: {
+    backgroundColor: '#fff',
+    color:'#61aadb',
+    padding:12,
+    height: 45,
+    borderRadius: 7,
+    marginBottom: 15,
+    textAlign:'center',
+  },
+  
+  //botão "buscar"
+  submit_btn: {
+    color: '#61aadb',
+    fontSize: 20,
+  },
+
+   //conjunto de botões
+   allBtn: {
+    flex: 1,
+    flexDirection: 'column',
   },
 
   submit_text: {
     color: '#fff',
-    fontSize: 18,
-    backgroundColor:'transparent',
+    fontSize: 17,
   },
 
-  btn_register: {
-    backgroundColor: '#000',
+
+  //remetente 
+  submit_text_special: {
+      color: '#fff',
+    fontSize: 12, //texto menor para caber dentro do botão
+  },
+
+  btn_title: {
     width: 250,
     height: 45,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 7,
     marginBottom: 15,
+  },
 
+  btn_text: {
+    color: '#fff',
+    fontSize: 18,
   },
 
   register_text: {
     color:'#fff',
-  },
-   btn_title: {
-        width: 250,
-        height: 45,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 7,
-        marginBottom: 15,
-      },
-    btn_text: {
-        color: '#fff',
-        fontSize: 25,
-      }
+  }
+  ,
+ 
 
 });
